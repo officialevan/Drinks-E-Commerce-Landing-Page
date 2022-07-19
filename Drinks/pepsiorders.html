@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepsi | orders</title>
+    <script src="https://kit.fontawesome.com/56c63cc6a8.js"crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="book.js">
+</head>
+<style>
+    body {
+    width: 500px;
+    margin: 0 auto;
+    padding: 50px;
+    background: #004B93;
+    color: white;
+
+  }
+  
+  div.elem-group {
+    margin: 20px 0;
+  }
+  
+  div.elem-group.inlined {
+    width: 49%;
+    display: inline-block;
+
+    margin-left: 1%;
+  }
+  
+  label {
+    display: block;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-size: 1.25em;
+    background: transparent;
+  }
+  
+  input, select, textarea {
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    font-family: 'Helvetica';
+    width: 100%;
+    border: 1px solid #fff;
+    padding: 10px;
+  }
+  
+  div.elem-group.inlined input {
+    width: 95%;
+    display: inline-block;
+  }
+  
+  textarea {
+    height: 250px;
+  }
+  
+  hr {
+    border: 1px dotted #ccc;
+  }
+  
+  button {
+    height: 50px;
+    background: black;
+    border: none;
+    color: white;
+    font-size: 1.25em;
+    font-family: 'Helvetica';
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background:red;
+    border: 2px solid black;
+    color: black;
+  }
+  @media only screen and (max-width: 600px) {
+    .columns {
+      width: 100%;
+    }
+   }
+  
+  
+  .container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    float: left;
+    width: 33.3%;
+    padding: 8px;
+    backdrop-filter: blur(20px);
+  }
+  
+  input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  i{
+      width:70px;
+  }
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+  }
+  
+.chkbx{
+    position: absolute;
+    display: inline;
+
+    
+}
+.pepsilogo{
+      width: 200px;
+  }
+  span.price {
+    float: right;
+    color: grey;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+  @media (max-width: 800px) {
+    .row {
+      flex-direction: column-reverse;
+    }
+    .col-25 {
+      margin-bottom: 20px;
+    }
+  }
+  .pepsicircle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -45;
+    background: #e51e2a;
+    clip-path: circle(70% at right -20%);
+}
+
+</style>
+
+<body>
+  
+    <form action="customer.php" method="post">
+      <div class="pepsicircle"></div>
+    
+        <div class="elem-group">
+            <img src="images/pepsilogo.gif" alt="" class="pepsilogo">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="customer_name" placeholder="Enter Your Name." pattern=[A-Z\sa-z]{3,20} required>
+        </div>
+        <div class="elem-group">
+          <label for="email">Your E-mail</label>
+          <input type="email" id="email" name="customer_email" placeholder="Enter your email."required>
+        </div>
+        <div class="elem-group">
+          <label for="phone">Your Phone</label>
+          <input type="tel" id="phone" name="customer_phone" placeholder="Enter you phone number." pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
+        </div>
+        <hr>
+        <div class="elem-group inlined">
+          <label for="adult">Quantity</label>
+          <input type="number" id="orders" name="total_orders" placeholder="2" min="1" required>
+        </div>
+
+        <div class="elem-group inlined">
+          <label for="checkin-date">Date and time of Order</label>
+          <input type="datetime-local" id="checkin-date" name="checkin" required>
+        </div>
+        <div class="elem-group inlined">
+          <label for="checkout-date">Date and time for your delivery</label>
+           <marquee behavior="blink" direction="" style="color: red;font-size: 15px;">If delivery arrives 10min late, it's free.</marquee>
+          <input type="datetime-local" id="checkout-date" name="checkout" required>
+        </div>
+        <div class="elem-group">
+          <label for="room-selection">Select Your Flavour</label>
+          <select id="room-selection" name="customer_preference" required>
+              <option value="">Choose Coke Flavour you want</option>
+              <option value="cokediet">Coke Diet</option>
+              <option value="classiccoke">Classic Coke</option>
+              <option value="cokezerosugar">Coke Zero Sugar</option>
+              <option value="cokeoriginal">Coke Original</option>
+
+          </select>
+        </div>
+        <hr>
+        <div class="elem-group">
+          <label for="message">Anything Else?</label>
+          <textarea id="message" name="customer_message" spellcheck="true" placeholder="Tell us anything else that might be important." required></textarea>
+        </div>
+      <div class="col-50">
+        <h3>Payment</h3>
+        <label for="fname">Accepted Cards</label>
+        <div class="icon-container">
+          <i class="fa-brands fa-cc-visa" style="color: white;"></i>
+          <i class="fa-brands fa-cc-amex"style="color: blue;"></i>
+          <i class="fa-brands fa-cc-mastercard" style="color:red;"></i>
+          <i class="fa-brands fa-cc-discover"style="color: orange;"></i>
+        </div>
+        <label for="cname">Name on Card</label>
+        <input type="text" id="cname" name="cardname" placeholder="Enter your name." pattern=[A-Z\sa-z]{3,20} required>
+        <label for="ccnum">Credit card number</label>
+        <input type="text" id="ccnum" name="cardnumber" placeholder="Enter your card number." required>
+        <label for="expmonth">Exp Month</label>
+        <input type="text" id="expmonth" name="expmonth" placeholder="mm" required>
+
+        <div class="row">
+          <div class="col-50">
+            <label for="expyear">Exp Year</label>
+            <input type="text" id="expyear" name="expyear" placeholder="yyyy" required>
+          </div>
+          <div class="col-50">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" placeholder="352" required>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <label>
+    <input type="checkbox" checked="checked" name="sameadr" class="chkbx" value="Y"> Shipping address same as billing
+        <input type="checkbox" name="mailing_list" id="" checked="checked" value="N">Enter mailing list
+</label>
+    <button type="submit">Process Order</button>
+  </form>
+</div>
+</div>
+
+</div>
+</body>
+</html>

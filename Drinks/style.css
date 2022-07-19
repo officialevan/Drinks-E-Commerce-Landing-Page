@@ -1,0 +1,844 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica';
+    scroll-behavior: smooth;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background: #fef6e4;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    width:85%;
+    margin:auto;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(20px);
+    z-index: 3;
+}
+.logo{
+    width: 200px;
+    cursor: pointer;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+.navlinks{
+    text-decoration: none;
+    color: black;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: 15px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #5dadf8;
+    position: relative;
+
+}
+.navbar ul li ::after{
+    content: '';
+    height: 2px;
+    width: 0;
+    background: #001858;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    transition: 0.5s;
+}
+.navbar ul li:hover ::after{
+    width:100%;
+}
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 0 20px;
+    border-radius: 20px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.card:hover{
+    width: 600px;
+}
+.card .circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr);
+    clip-path: circle(120px at center);
+    transition: 0.5s;
+
+}
+.card:hover .circle::before{
+    clip-path: circle(400px at center);
+}
+.card .circle .logo_product{
+    position: relative;
+    width: 200px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.card:hover .circle .logo_product{
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.content{
+    position: relative;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.card:hover .content{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+.content h2{
+    color: white;
+    text-transform: uppercase;
+    font-size: 2em;
+    line-height: 1em;
+    font-weight: bold;
+}
+.content p{
+    color: white;
+
+}
+.cta{
+    display: flex;
+    align-items: center;
+    color: black;
+    background: none;
+    border: none;
+    padding: 12px 18px;
+    position: relative;
+    z-index: 7;
+    font-size: 17px;
+}
+.cta::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+    translateX(calc(100%+4px));
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50px;
+    transition: transform .25s .25s
+    cubic-bezier(0, 0,.5, 2),width .25s 
+    cubic-bezier(0, 0, .5, 2);
+    opacity: 0.3;
+}
+.cta:hover::before{
+    width: 100%;
+    transform: translateY(-50%) translateX(-18px);
+    transition: transform .25s cubic-bezier(0,0, .5, 2),
+    width .25s .25s cubic-bezier(0,0,.5,2);
+}
+.cta a{
+    color: black;
+    text-decoration: none;
+}
+.cta i{
+    margin-left: 5px;
+    transition: transform .25s .4s cubic-bezier(0,0,.5,2);
+}
+.cta:hover i{
+    transform: translateX(3px);
+}
+.card .product_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    height: 500px;
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+.card:hover .product_img{
+    transform: translate(-50%,-50%) scale(1);
+    transition-delay: 0.5s;
+    left: 72%;
+}
+.footer{
+    margin-top: 200px;
+    width: 100%;
+    padding: 100px 15%;
+    color: black;
+    display: flex;
+}
+.footer div{
+    text-align: center;
+
+}
+.col-2{
+    flex-grow: 2;
+}
+.footer div h3{
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+.col-3 h3 p{
+    text-align: right;
+}
+.col-1 ul li a{
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #807e7e;
+    font-size: 15px;
+}
+.navlinkfooter{
+    text-decoration: none;
+    color: #001858;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: 15px;
+}
+.col-1 ul li::after{
+    content: '';
+    height: 2px;
+    width: 0;
+    background: #001858;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    transition: 0.5s;
+}
+.col-1 ul li:hover ::after{
+    width:100%;
+}
+.col-1 ul li{
+    list-style: none;
+    display: block;
+    margin-bottom: 20px;
+}
+
+form input{
+    width: 400px;
+    height: 45px;
+    border-radius: 4px;
+}
+.subscribe{
+    display: inline-block;
+    width: 10%;
+    height: 40px;
+    background: #6cb5fa;
+    border-radius: 4px;
+}
+/**Coca Cola landing Page style sheet starts here**/
+.cokelandingpage{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #161616;
+
+}
+.cokecircle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #e51e2a;
+    clip-path: circle(70% at right -20%);
+}
+.cokeheader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding: 40px 100px;
+}
+.cokeheader .cokelogo{
+    position: relative;
+    max-width: 150px;
+}
+.cokeheader .cokenav{
+    position: relative;
+    display: flex;
+}
+.cokeheader .cokenav li{
+    list-style: none;
+}
+.cokeheader .cokenav a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    font-size: 13px;
+}
+.cokecontent{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cokecontent .coketextbox{
+    position: relative;
+    max-width: 600px;
+    margin-right: 20px;
+}
+.cokecontent .coketextbox h2{
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+    font-weight: 700;
+}
+.cokecontent .coketextbox p{
+    color: #fff;
+    font-size: 16px;
+}
+.cokecontent .coketextbox a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #e51e2a;
+    color: #fff;
+    width: 20px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.cokecontent .coketextbox a:hover{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #e51e2a;
+    color: #fff;
+    width: 70px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+/**Coca Cola landing Page style sheet ends here**/
+
+
+/**Pepsi landing Page style sheet starts here**/
+.pepsilandingpage{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004B93;
+
+}
+.pepsicircle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #e51e2a;
+    clip-path: circle(70% at right -20%);
+}
+
+.pepsicircle2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(30px);
+    clip-path: circle(80% at right -20%);
+}
+.pepsiheader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding: 40px 100px;
+}
+.pepsiheader .pepsilogo{
+    position: relative;
+    max-width: 70px;
+}
+.pepsiheader .pepsinav{
+    position: relative;
+    display: flex;
+}
+.pepsiheader .pepsinav li{
+    list-style: none;
+}
+
+
+.pepsiheader .pepsinav a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    font-size: 13px;
+}
+.pepsicontent{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pepsicontent .pepsitextbox{
+    position: relative;
+    max-width: 600px;
+    margin-right: 20px;
+}
+.pepsicontent .pepsitextbox h2{
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+    font-weight: 700;
+}
+.pepsicontent .pepsitextbox p{
+    color: #fff;
+    font-size: 16px;
+}
+.pepsicontent .pepsitextbox a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #e51e2a;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 12;
+    width: 20px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.pepsicontent .pepsitextbox a:hover{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #e51e2a;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 12;
+    width: 70px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+/*PEPSI ENDS HERE*/
+
+/*7 UP BEGINS HERE*/
+.sevenlandingpage{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00452a;
+
+}
+.sevenheader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding: 40px 100px;
+}
+.sevenheader .sevenlogo{
+    position: relative;
+    max-width: 50px;
+}
+.sevenheader .sevennav{
+    position: relative;
+    display: flex;
+}
+.sevenheader .sevennav li{
+    list-style: none;
+}
+.sevenheader .sevennav a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    font-size: 13px;
+}
+.sevencontent{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sevencontent .seventextbox{
+    position: relative;
+    max-width: 600px;
+    margin-right: 20px;
+}
+.sevencontent .seventextbox h2{
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+    font-weight: 700;
+}
+.sevencontent .seventextbox p{
+    color: #fff;
+    font-size: 16px;
+}
+.sevencontent .seventextbox a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #e51e2a;
+    color: #fff;
+    width: 20px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.sevencontent .seventextbox a:hover{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #e51e2a;
+    color: #fff;
+    width: 90px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+/*7 UP ENDS HERE*/
+
+/*MIRINDA BEGINS HERE*/
+.mirindalandingpage{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF7900;
+
+}
+.mirindaheader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding: 40px 100px;
+}
+.mirindaheader .mirindalogo{
+    position: relative;
+    max-width: 50px;
+}
+.mirindaheader .mirindanav{
+    position: relative;
+    display: flex;
+}
+.mirindaheader .mirindanav li{
+    list-style: none;
+}
+.mirindaheader .mirindanav a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    font-size: 13px;
+}
+.mirindacontent{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mirindacontent .mirindatextbox{
+    position: relative;
+    max-width: 600px;
+    margin-right: 20px;
+}
+.mirindacontent .mirindatextbox h2{
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+    font-weight: 700;
+}
+.mirindacontent .mirindatextbox p{
+    color: #fff;
+    font-size: 16px;
+}
+.mirindacontent .mirindatextbox a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #00452a;
+    color: #fff;
+    width: 20px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.mirindacontent .mirindatextbox a:hover{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #00452a;
+    color: #fff;
+    width: 70px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+/*MIRINDA ENDS HERE*/
+
+/*STARBUCKS BEGINS HERE*/
+.starlandingpage{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #448D70;
+
+}
+.starheader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding: 40px 100px;
+}
+.starheader .starlogo{
+    position: relative;
+    max-width: 50px;
+}
+.starheader .starnav{
+    position: relative;
+    display: flex;
+}
+.starheader .starnav li{
+    list-style: none;
+}
+.starheader .starnav a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    font-size: 13px;
+}
+.starcontent{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.starcontent .startextbox{
+    position: relative;
+    max-width: 600px;
+    margin-right: 20px;
+}
+.starcontent .startextbox h2{
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+    font-weight: 700;
+}
+.starcontent .startextbox p{
+    color: #fff;
+    font-size: 16px;
+}
+.starcontent .startextbox a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #e51e2a;
+    color: #fff;
+    width: 20px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.starcontent .startextbox a:hover{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #e51e2a;
+    color: #fff;
+    width: 90px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+/*7 UP ENDS HERE*/
+
+/*STEERS STARTS HERE*/
+.steerlandingpage{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #795270;
+
+}
+.steerheader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding: 40px 100px;
+}
+.steerheader .steerlogo{
+    position: relative;
+    max-width: 90px;
+}
+.steerheader .steernav{
+    position: relative;
+    display: flex;
+}
+.steerheader .steernav li{
+    list-style: none;
+}
+.steerheader .steernav a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    font-size: 13px;
+}
+.steercontent{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.steercontent .steertextbox{
+    position: relative;
+    max-width: 600px;
+    margin-right: 20px;
+}
+.steercontent .steertextbox h2{
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+    font-weight: 700;
+}
+.steercontent .steertextbox p{
+    color: #fff;
+    font-size: 16px;
+}
+.steercontent .steertextbox a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #752863;
+    color: #fff;
+    width: 20px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.steercontent .steertextbox a:hover{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #752863;
+    color: #fff;
+    width: 70px;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
